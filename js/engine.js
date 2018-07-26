@@ -138,7 +138,7 @@ var Engine = (function(global) {
             }
         }
 
-        // renderEntities();
+        renderEntities();
     }
 
     /* This function is called by the render function and is called on each game
@@ -153,7 +153,7 @@ var Engine = (function(global) {
         //     enemy.render();
         // });
 
-        // player.render();
+        player.render();
     }
 
     /* This function does nothing but it could have been a good place to
