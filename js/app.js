@@ -1,6 +1,6 @@
 class Entity {
   constructor() {
-    this.sprite = "images/"
+    this.sprite = "images/";
     this.x = 0;
     this.y = 0;
     // The image/sprite for our entities, this uses
@@ -27,22 +27,30 @@ class Player extends Entity {
     this.rightLeft = 101;
     this.upDown = 83;
     this.x = 2 * this.rightLeft;
-    this.y = 5 * this.upDown;
+    this.y = 5 * this.upDown - 20;
   }
 
   handleInput(input) {
     switch (input) {
       case "left":
-        this.x -= this.rightLeft;
+        if (this.x > 0) {
+          this.x -= this.rightLeft;
+        }
         break;
       case "right":
-        this.x += this.rightLeft;
+        if (this.x < 4 * this.rightLeft) {
+          this.x += this.rightLeft;
+        }
         break;
       case "up":
-        this.y -= this.upDown
+        if (this.y > 5) {
+          this.y -= this.upDown;
+        }
         break;
       case "down":
-        this.y += this.upDown;
+        if (this.y < 4 * this.upDown) {
+          this.y += this.upDown;
+        }
         break;
       default:
         break;
