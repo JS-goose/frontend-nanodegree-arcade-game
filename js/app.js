@@ -15,9 +15,9 @@ class Entity {
 
  
 
-  checkCollision() {
-
-  }
+  // checkCollision() {
+  //   if (this.y === )
+  // }
 }
 
 class Player extends Entity {
@@ -27,7 +27,7 @@ class Player extends Entity {
     this.rightLeft = 101;
     this.upDown = 83;
     this.x = 2 * this.rightLeft;
-    this.y = 5 * this.upDown - 20;
+    this.y = 4 * this.upDown + 54;
   }
 
   handleInput(input) {
@@ -57,6 +57,14 @@ class Player extends Entity {
     }
   }
 
+  update() {
+    for(let enemy of allEnemies) {
+      if (this.y === enemy.y) {
+        console.log('same row');
+      }
+      
+    }
+  }
   // checkVictory() {
 
   // }
@@ -66,7 +74,7 @@ class Enemy extends Entity {
   constructor(x, y, speed) {
     super();
     this.x = x
-    this.y = y + 56;
+    this.y = y + 54;
     this.speed = speed;
     this.sprite += "enemy-bug.png";
     this.rightLeft = 101;
@@ -94,15 +102,16 @@ class Enemy extends Entity {
 // player object
 const player = new Player(); 
 // enemy constructors(x, y, speed)
-const enemy1 = new Enemy(-101, 0, 300);
-const enemy2 = new Enemy(-101, 83, 125);
-const enemy3 = new Enemy((-101 * 3), 83, 128);
-const enemy4 = new Enemy((-101 * 4), 155, 285);
-const enemy5 = new Enemy((-101 * 5), 155, 265);
+const enemy1 = new Enemy(-101, 0, 200); // row 1 enemy
+const enemy2 = new Enemy((-101 * 4), 0, 210) // row 1 enemy
+const enemy3 = new Enemy(-101, 88, 155); // row 2 enemy
+const enemy4 = new Enemy((-101 * 4), 83, 158); // row 2 enemy
+const enemy5 = new Enemy((-101 * 3), 166, 225); // row 3 enemy
+const enemy6 = new Enemy((-101 * 6), 166, 218); // row 3 enemy
 // enemies array
 const allEnemies = [];
 
-allEnemies.push(enemy1, enemy2, enemy3, enemy4, enemy5);
+allEnemies.push(enemy1, enemy2, enemy3, enemy4, enemy5, enemy6);
 
 // This listens for key presses and sends the keys to your
 // Player.handleInput() method. You don't need to modify this.
