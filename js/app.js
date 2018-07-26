@@ -13,10 +13,10 @@ class Entity {
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
   }
 
-  update(dt) {
-    // You should multiply any movement by the dt parameter
-    // which will ensure the game runs at the same speed for
-    // all computers.
+ 
+
+  checkCollision() {
+
   }
 }
 
@@ -56,15 +56,53 @@ class Player extends Entity {
         break;
     }
   }
+
+  // checkVictory() {
+
+  // }
 }
 
 class Enemy extends Entity {
-  constructor() {
+  constructor(x, y, speed) {
     super();
+    this.x = x
+    this.y = y + 56;
+    this.speed = speed;
+    this.sprite += "enemy-bug.png";
+    this.rightLeft = 101;
+    this.offX = this.rightLeft * 5;
+    this.reset = -this.rightLeft
   }
+
+  update(dt) {
+    // You should multiply any movement by the dt parameter
+    // which will ensure the game runs at the same speed for
+    // all computers.
+    if (this.x < this.offX) {
+      this.x += this.speed * dt;
+    } else {
+      this.x = this.reset;
+    }
+    
+  }
+
+  // changePace() {
+
+  // }
 }
 
-const player = new Player();
+// player object
+const player = new Player(); 
+// enemy constructors(x, y, speed)
+const enemy1 = new Enemy(-101, 0, 300);
+const enemy2 = new Enemy(-101, 83, 125);
+const enemy3 = new Enemy((-101 * 3), 83, 128);
+const enemy4 = new Enemy((-101 * 4), 155, 285);
+const enemy5 = new Enemy((-101 * 5), 155, 265);
+// enemies array
+const allEnemies = [];
+
+allEnemies.push(enemy1, enemy2, enemy3, enemy4, enemy5);
 
 // This listens for key presses and sends the keys to your
 // Player.handleInput() method. You don't need to modify this.
