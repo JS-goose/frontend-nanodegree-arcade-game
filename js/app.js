@@ -13,9 +13,7 @@ class Entity {
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
   }
 
- 
-
-  // checkCollision() {
+  // checkCollisions() {
   //   if (this.y === )
   // }
 }
@@ -58,11 +56,19 @@ class Player extends Entity {
   }
 
   update() {
-    for(let enemy of allEnemies) {
-      if (this.y === enemy.y) {
-        console.log('same row');
+    /** 
+     * TODO: Fix the collision on 2nd row of bugs, sometimes one bug will not trigger collision */
+    for (let enemy of allEnemies) {
+      if (
+        this.y === enemy.y &&
+        this.x < enemy.x + 83 &&
+        this.x + 83 > enemy.x &&
+        this.y < enemy.y + 101 &&
+        101 + this.y > enemy.y
+      ) {
+        this.x = 2 * this.rightLeft;
+        this.y = 4 * this.upDown + 54;
       }
-      
     }
   }
   // checkVictory() {
@@ -73,13 +79,13 @@ class Player extends Entity {
 class Enemy extends Entity {
   constructor(x, y, speed) {
     super();
-    this.x = x
+    this.x = x;
     this.y = y + 54;
     this.speed = speed;
     this.sprite += "enemy-bug.png";
     this.rightLeft = 101;
     this.offX = this.rightLeft * 5;
-    this.reset = -this.rightLeft
+    this.reset = -this.rightLeft;
   }
 
   update(dt) {
@@ -91,7 +97,6 @@ class Enemy extends Entity {
     } else {
       this.x = this.reset;
     }
-    
   }
 
   // changePace() {
@@ -100,14 +105,14 @@ class Enemy extends Entity {
 }
 
 // player object
-const player = new Player(); 
+const player = new Player();
 // enemy constructors(x, y, speed)
 const enemy1 = new Enemy(-101, 0, 200); // row 1 enemy
-const enemy2 = new Enemy((-101 * 4), 0, 210) // row 1 enemy
+const enemy2 = new Enemy(-101 * 4, 0, 210); // row 1 enemy
 const enemy3 = new Enemy(-101, 88, 155); // row 2 enemy
-const enemy4 = new Enemy((-101 * 4), 83, 158); // row 2 enemy
-const enemy5 = new Enemy((-101 * 3), 166, 225); // row 3 enemy
-const enemy6 = new Enemy((-101 * 6), 166, 218); // row 3 enemy
+const enemy4 = new Enemy(-101 * 4, 83, 158); // row 2 enemy
+const enemy5 = new Enemy(-101 * 3, 166, 225); // row 3 enemy
+const enemy6 = new Enemy(-101 * 6, 166, 218); // row 3 enemy
 // enemies array
 const allEnemies = [];
 
