@@ -1,10 +1,11 @@
 class Entity {
   constructor() {
+    this.sprite = "images/"
     this.x = 0;
     this.y = 0;
     // The image/sprite for our entities, this uses
     // a helper we've provided to easily load images
-    this.sprite = "images/";
+    // this.sprite = "images/";
   }
 
   // Draw the enemy on the screen, required method for game
@@ -23,23 +24,25 @@ class Player extends Entity {
   constructor() {
     super();
     this.sprite += "char-boy.png";
-    this.x = 2;
-    this.y = 5;
+    this.rightLeft = 101;
+    this.upDown = 83;
+    this.x = 2 * this.rightLeft;
+    this.y = 5 * this.upDown;
   }
 
   handleInput(input) {
     switch (input) {
       case "left":
-        this.x -= 20;
+        this.x -= this.rightLeft;
         break;
       case "right":
-        this.x += 20;
+        this.x += this.rightLeft;
         break;
       case "up":
-        this.y -= 20;
+        this.y -= this.upDown
         break;
       case "down":
-        this.y += 20;
+        this.y += this.upDown;
         break;
       default:
         break;
