@@ -99,24 +99,21 @@ class Enemy extends Entity {
     }
   }
 
-  // changePace() {
-
-  // }
+ 
 }
 
 // player object
 const player = new Player();
 // enemy constructors(x, y, speed)
-const enemy1 = new Enemy(-101, 0, 200); // row 1 enemy
-const enemy2 = new Enemy(-101 * 4, 0, 210); // row 1 enemy
-const enemy3 = new Enemy(-101, 88, 155); // row 2 enemy
-const enemy4 = new Enemy(-101 * 4, 83, 158); // row 2 enemy
-const enemy5 = new Enemy(-101 * 3, 166, 225); // row 3 enemy
-const enemy6 = new Enemy(-101 * 6, 166, 218); // row 3 enemy
+const enemy1 = new Enemy(-101, 0, 208); // row 1 enemy
+const enemy2 = new Enemy((-101 * 4), 0, 210); // row 1 enemy
+const enemy3 = new Enemy((-101 * 4), 83, 158); // row 2 enemy
+const enemy4 = new Enemy((-101 * 3), 166, 245); // row 3 enemy
+const enemy5 = new Enemy((-101 * 6), 166, 245); // row 3 enemy
 // enemies array
 const allEnemies = [];
 
-allEnemies.push(enemy1, enemy2, enemy3, enemy4, enemy5, enemy6);
+allEnemies.push(enemy1, enemy2, enemy3, enemy4, enemy5);
 
 // This listens for key presses and sends the keys to your
 // Player.handleInput() method. You don't need to modify this.
