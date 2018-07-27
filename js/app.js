@@ -1,11 +1,10 @@
 class Entity {
   constructor() {
+    // The image/sprite for our entities, this uses
+    // a helper we've provided to easily load images
     this.sprite = "images/";
     this.x = 0;
     this.y = 0;
-    // The image/sprite for our entities, this uses
-    // a helper we've provided to easily load images
-    // this.sprite = "images/";
   }
 
   // Draw the enemy on the screen, required method for game
@@ -13,11 +12,14 @@ class Entity {
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
   }
 
-  // checkCollisions() {
-  //   if (this.y === )
-  // }
+  // resets the player to this location upon collision with enemy
+  resetPos() {
+    this.x = 2 * this.rightLeft;
+    this.y = 4 * this.upDown + 54;
+  }
 }
 
+// player class
 class Player extends Entity {
   constructor() {
     super();
@@ -28,6 +30,7 @@ class Player extends Entity {
     this.y = 4 * this.upDown + 54;
   }
 
+  // player movement logic, boundaries built in 
   handleInput(input) {
     switch (input) {
       case "left":
@@ -56,8 +59,7 @@ class Player extends Entity {
   }
 
   update() {
-    /** 
-     * TODO: Fix the collision on 2nd row of bugs, sometimes one bug will not trigger collision */
+    // collision detection
     for (let enemy of allEnemies) {
       if (
         this.y === enemy.y &&
@@ -66,8 +68,8 @@ class Player extends Entity {
         this.y < enemy.y + 101 &&
         101 + this.y > enemy.y
       ) {
-        this.x = 2 * this.rightLeft;
-        this.y = 4 * this.upDown + 54;
+        // if the enemy and player position match, send player back to starting location
+        this.resetPos();
       }
     }
   }
@@ -76,6 +78,7 @@ class Player extends Entity {
   // }
 }
 
+// enemy class
 class Enemy extends Entity {
   constructor(x, y, speed) {
     super();
@@ -89,9 +92,7 @@ class Enemy extends Entity {
   }
 
   update(dt) {
-    // You should multiply any movement by the dt parameter
-    // which will ensure the game runs at the same speed for
-    // all computers.
+    // looping action for enemies 
     if (this.x < this.offX) {
       this.x += this.speed * dt;
     } else {
@@ -102,7 +103,7 @@ class Enemy extends Entity {
  
 }
 
-// player object
+// player constructor
 const player = new Player();
 // enemy constructors(x, y, speed)
 const enemy1 = new Enemy(-101, 0, 208); // row 1 enemy
@@ -112,7 +113,7 @@ const enemy4 = new Enemy((-101 * 3), 166, 245); // row 3 enemy
 const enemy5 = new Enemy((-101 * 6), 166, 245); // row 3 enemy
 // enemies array
 const allEnemies = [];
-
+// push enemies to allEnemies array
 allEnemies.push(enemy1, enemy2, enemy3, enemy4, enemy5);
 
 // This listens for key presses and sends the keys to your
