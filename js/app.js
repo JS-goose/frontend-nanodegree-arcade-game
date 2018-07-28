@@ -78,8 +78,6 @@ class Player extends Entity {
       if (this.y === -29) {
         this.victory = true;
       }
-      // win.requestAnimationFrame(main);
-
     }
   }
 }
