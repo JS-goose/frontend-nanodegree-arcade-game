@@ -62,6 +62,15 @@ class Player extends Entity {
     }
   }
 
+  win() {
+    if (this.y === -29) {
+      console.log('right spot');
+      this.victory = true;
+      innerModal.classList.remove("hidden");
+      winModal.classList.remove("hidden");
+    }
+  }
+
   update() {
     // collision detection
     for (let enemy of allEnemies) {
@@ -76,10 +85,11 @@ class Player extends Entity {
         this.resetPos();
       }
       // win condition based on when the player reaches water (y-axis postion -29)
-      if (this.y === -29) {
-        this.victory = true;
-        winModal.classList.remove("hidden");
-      }
+      // if (this.y === -29) {
+      //   this.victory = true;
+      //   winModal.classList.remove("hidden");
+      //   innerModal.classList.remove("hidden");
+      // }
     }
   }
 }
@@ -110,8 +120,11 @@ class Enemy extends Entity {
 // modal variables
 const winModal = document.querySelector(".winModal");
 const playAgain = document.querySelector(".playAgain");
+const innerModal = document.querySelector(".innerModal");
 playAgain.addEventListener("click", function() {
+  console.log("click");
   winModal.classList.add("hidden");
+  innerModal.classList.add("hidden");
 });
 
 // player constructor
