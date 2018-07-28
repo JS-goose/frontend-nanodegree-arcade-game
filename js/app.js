@@ -50,6 +50,7 @@ class Player extends Entity {
       case "up":
         if (this.y > 5) {
           this.y -= this.upDown;
+          this.win();
         }
         break;
       case "down":
@@ -64,7 +65,6 @@ class Player extends Entity {
 
   win() {
     if (this.y === -29) {
-      console.log('right spot');
       this.victory = true;
       innerModal.classList.remove("hidden");
       winModal.classList.remove("hidden");
@@ -122,9 +122,9 @@ const winModal = document.querySelector(".winModal");
 const playAgain = document.querySelector(".playAgain");
 const innerModal = document.querySelector(".innerModal");
 playAgain.addEventListener("click", function() {
-  console.log("click");
   winModal.classList.add("hidden");
   innerModal.classList.add("hidden");
+  player.resetPos();
 });
 
 // player constructor
