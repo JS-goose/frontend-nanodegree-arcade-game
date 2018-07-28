@@ -34,7 +34,7 @@ class Player extends Entity {
     this.victory = false;
   }
 
-  // player movement logic, boundaries built in 
+  // player movement logic, boundaries built in
   handleInput(input) {
     switch (input) {
       case "left":
@@ -75,11 +75,11 @@ class Player extends Entity {
         // if the enemy and player position match, send player back to starting location
         this.resetPos();
       }
+      // win condition based on when the player reaches water (y-axis postion -29)
       if (this.y === -29) {
         this.victory = true;
         winModal.classList.remove("hidden");
       }
-      
     }
   }
 }
@@ -98,27 +98,30 @@ class Enemy extends Entity {
   }
 
   update(dt) {
-    // looping action for enemies 
+    // looping action for enemies
     if (this.x < this.offX) {
       this.x += this.speed * dt;
     } else {
       this.x = this.reset;
     }
   }
-
- 
 }
 
 // modal variables
 const winModal = document.querySelector(".winModal");
+const playAgain = document.querySelector(".playAgain");
+playAgain.addEventListener("click", function() {
+  winModal.classList.add("hidden");
+});
+
 // player constructor
 const player = new Player();
 // enemy constructors(x, y, speed)
 const enemy1 = new Enemy(-101, 0, 208); // row 1 enemy
-const enemy2 = new Enemy((-101 * 4), 0, 210); // row 1 enemy
-const enemy3 = new Enemy((-101 * 4), 83, 180); // row 2 enemy
-const enemy4 = new Enemy((-101 * 3), 166, 245); // row 3 enemy
-const enemy5 = new Enemy((-101 * 6), 166, 245); // row 3 enemy
+const enemy2 = new Enemy(-101 * 4, 0, 210); // row 1 enemy
+const enemy3 = new Enemy(-101 * 4, 83, 180); // row 2 enemy
+const enemy4 = new Enemy(-101 * 3, 166, 245); // row 3 enemy
+const enemy5 = new Enemy(-101 * 6, 166, 245); // row 3 enemy
 // enemies array
 const allEnemies = [];
 // push enemies to allEnemies array
