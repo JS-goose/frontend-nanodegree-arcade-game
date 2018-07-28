@@ -24,10 +24,14 @@ class Player extends Entity {
   constructor() {
     super();
     this.sprite += "char-boy.png";
+    // sets right and left movement to the width of one block
     this.rightLeft = 101;
+    // sets up and down movement to the width of one block
     this.upDown = 83;
+    // sets initial player position
     this.x = 2 * this.rightLeft;
     this.y = 4 * this.upDown + 54;
+    this.victory = false;
   }
 
   // player movement logic, boundaries built in 
@@ -71,11 +75,13 @@ class Player extends Entity {
         // if the enemy and player position match, send player back to starting location
         this.resetPos();
       }
+      if (this.y === -29) {
+        this.victory = true;
+      }
+      // win.requestAnimationFrame(main);
+
     }
   }
-  // checkVictory() {
-
-  // }
 }
 
 // enemy class
@@ -108,7 +114,7 @@ const player = new Player();
 // enemy constructors(x, y, speed)
 const enemy1 = new Enemy(-101, 0, 208); // row 1 enemy
 const enemy2 = new Enemy((-101 * 4), 0, 210); // row 1 enemy
-const enemy3 = new Enemy((-101 * 4), 83, 158); // row 2 enemy
+const enemy3 = new Enemy((-101 * 4), 83, 180); // row 2 enemy
 const enemy4 = new Enemy((-101 * 3), 166, 245); // row 3 enemy
 const enemy5 = new Enemy((-101 * 6), 166, 245); // row 3 enemy
 // enemies array
