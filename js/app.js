@@ -77,7 +77,9 @@ class Player extends Entity {
       }
       if (this.y === -29) {
         this.victory = true;
+        winModal.classList.remove("hidden");
       }
+      
     }
   }
 }
@@ -107,6 +109,8 @@ class Enemy extends Entity {
  
 }
 
+// modal variables
+const winModal = document.querySelector(".winModal");
 // player constructor
 const player = new Player();
 // enemy constructors(x, y, speed)
