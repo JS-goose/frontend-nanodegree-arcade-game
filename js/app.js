@@ -1,3 +1,7 @@
+/*Inspiration for the update() function and then handleInput() function 
+came from a guide posted by Matthew Cranford located here 
+https://matthewcranford.com/arcade-game-walkthrough-part-1-starter-code-breakdown/
+*/
 class Entity {
   constructor() {
     // The image/sprite for our entities, this uses
