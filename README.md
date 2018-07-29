@@ -11,7 +11,7 @@ I wanted to customize the game, but I feel I am too far behind in the course wor
 Fork a copy of the repo and then download the files to your local machine.  Once you have the files, simply open the folder and then open index.html in your favorite browser to start playing.
 
 # Instructions
-
+When the game loads, use your arrow keys (left, right, up, down) to move the character.  Avoid bugs to make it to the water and win the game.  If you get hit by a bug you'll have to start over.  Once the game is won a modal will pop up asking if you want to play again.
 
 # Required Dependencies 
 * None - The game will run locally once you have forked and cloned the repo or by using the above link to get a live playable version
