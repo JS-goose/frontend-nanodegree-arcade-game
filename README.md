@@ -1,12 +1,11 @@
 # Udacity Project 3 - Classic Arcade Game
 These are the files for the third project in Udacity's Front End Web Development Nanodegree.  All of the code was written by me (Jonathan Sexton) unless otherwise stated.
 
-The live, playable game can be found [here]().
+The live, playable game can be found [here](https://js-goose.github.io/frontend-nanodegree-arcade-game/).
 
 # Project Design
 I wanted to customize the game, but I feel I am too far behind in the course work to spend anymore time on this project.  I will go back and add more features when time allows.
 
-![alt text]( "Arcade Game Preview")
 
 # Playing Locally
 Fork a copy of the repo and then download the files to your local machine.  Once you have the files, simply open the folder and then open index.html in your favorite browser to start playing.
@@ -15,8 +14,7 @@ Fork a copy of the repo and then download the files to your local machine.  Once
 
 
 # Required Dependencies 
-* None
-The game will run locally once you have forked and cloned the repo or by using the above link to get a live playable version
+* None - The game will run locally once you have forked and cloned the repo or by using the above link to get a live playable version
 
 # Optional Dependencies 
 * None
