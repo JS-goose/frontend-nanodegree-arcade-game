@@ -23,7 +23,7 @@ class Entity {
 class Player extends Entity {
   constructor() {
     super();
-    this.sprite += "char-boy.png";
+    this.sprite += "char-princess-girl.png";
     // sets right and left movement to the width of one block
     this.rightLeft = 101;
     // sets up and down movement to the width of one block
@@ -68,6 +68,7 @@ class Player extends Entity {
       this.victory = true;
       innerModal.classList.remove("hidden");
       winModal.classList.remove("hidden");
+      stopMovement();
     }
   }
 
@@ -84,12 +85,6 @@ class Player extends Entity {
         // if the enemy and player position match, send player back to starting location
         this.resetPos();
       }
-      // win condition based on when the player reaches water (y-axis postion -29)
-      // if (this.y === -29) {
-      //   this.victory = true;
-      //   winModal.classList.remove("hidden");
-      //   innerModal.classList.remove("hidden");
-      // }
     }
   }
 }
@@ -113,6 +108,12 @@ class Enemy extends Entity {
       this.x += this.speed * dt;
     } else {
       this.x = this.reset;
+    }
+  }
+
+  stopMovement(enemy, speed) {
+    for (enemey of allEnemies) {
+      enemy.speed = 0;
     }
   }
 }
