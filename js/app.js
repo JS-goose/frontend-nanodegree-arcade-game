@@ -68,7 +68,7 @@ class Player extends Entity {
       this.victory = true;
       innerModal.classList.remove("hidden");
       winModal.classList.remove("hidden");
-      stopMovement();
+      // stopMovement();
     }
   }
 
@@ -111,11 +111,11 @@ class Enemy extends Entity {
     }
   }
 
-  stopMovement(enemy, speed) {
-    for (enemey of allEnemies) {
-      enemy.speed = 0;
-    }
-  }
+  // stopMovement(enemy, speed) {
+  //   for (enemey of allEnemies) {
+  //     enemy.speed = 0;
+  //   }
+  // }
 }
 
 // modal variables
