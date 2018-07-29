@@ -16,7 +16,7 @@ body {
   height: 30%;
   width: 30%;
   margin: 8% auto 0 auto;
-  background-color: rgba(21, 182, 69, 0.7);
+  background-color: rgba(189, 45, 124, 0.7);
   padding-top: 1%;
 }
 .hidden {
@@ -29,7 +29,7 @@ body {
   padding: 2%;
 }
 .playAgain:hover {
-  background-color: lightgreen;
+  background-color: lightcoral;
   color: white;
   border: 1px solid white;
   border-radius: 5%;
