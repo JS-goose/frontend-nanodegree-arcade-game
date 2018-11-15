@@ -3,6 +3,8 @@ These are the files for the third project in Udacity's Front End Web Development
 
 The live, playable game can be found [here](https://js-goose.github.io/frontend-nanodegree-arcade-game/).
 
+![preview image of a frogger style game](./images/preview.png)
+
 # Project Design
 I wanted to customize the game, but I feel I am too far behind in the course work to spend anymore time on this project.  I will go back and add more features when time allows.
 
